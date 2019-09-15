@@ -3,8 +3,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 
-    <title>trifles.data_structures API documentation</title>
-    <meta name="description" content="Native Python Data Structures." />
+    <title>trifles.data_structures.queue API documentation</title>
+    <meta name="description" content="Queue in Python." />
 
   <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300' rel='stylesheet' type='text/css'>
   
@@ -1042,17 +1042,26 @@ table {
     <ul id="index">
 
 
-
-    <li class="set"><h3><a href="#header-submodules">Sub-modules</a></h3>
+    <li class="set"><h3><a href="#header-classes">Classes</a></h3>
       <ul>
-        <li class="mono"><a href="circularly_linked_list.m.html">trifles.data_structures.circularly_linked_list</a></li>
-        <li class="mono"><a href="double_ended_queue.m.html">trifles.data_structures.double_ended_queue</a></li>
-        <li class="mono"><a href="doubly_linked_list.m.html">trifles.data_structures.doubly_linked_list</a></li>
-        <li class="mono"><a href="queue.m.html">trifles.data_structures.queue</a></li>
-        <li class="mono"><a href="singly_linked_list.m.html">trifles.data_structures.singly_linked_list</a></li>
-        <li class="mono"><a href="stack.m.html">trifles.data_structures.stack</a></li>
+        <li class="mono">
+        <span class="class_name"><a href="#trifles.data_structures.queue.Queue">Queue</a></span>
+        
+          
+  <ul>
+    <li class="mono"><a href="#trifles.data_structures.queue.Queue.__init__">__init__</a></li>
+    <li class="mono"><a href="#trifles.data_structures.queue.Queue.empty">empty</a></li>
+    <li class="mono"><a href="#trifles.data_structures.queue.Queue.get_back">get_back</a></li>
+    <li class="mono"><a href="#trifles.data_structures.queue.Queue.get_front">get_front</a></li>
+    <li class="mono"><a href="#trifles.data_structures.queue.Queue.pop">pop</a></li>
+    <li class="mono"><a href="#trifles.data_structures.queue.Queue.push">push</a></li>
+    <li class="mono"><a href="#trifles.data_structures.queue.Queue.size">size</a></li>
+  </ul>
+
+        </li>
       </ul>
     </li>
+
     </ul>
   </div>
 
@@ -1064,36 +1073,89 @@ table {
 
 
   <header id="section-intro">
-  <h1 class="title"><span class="name">trifles.data_structures</span> module</h1>
-  <p>Native Python Data Structures.</p>
+  <h1 class="title"><span class="name">trifles.data_structures.queue</span> module</h1>
+  <p>Queue in Python.</p>
   
-  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-trifles.data_structures', this);">Show source &equiv;</a></p>
-  <div id="source-trifles.data_structures" class="source">
-    <div class="codehilite"><pre><span></span><span class="sd">&#39;&#39;&#39;Native Python Data Structures.</span>
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-trifles.data_structures.queue', this);">Show source &equiv;</a></p>
+  <div id="source-trifles.data_structures.queue" class="source">
+    <div class="codehilite"><pre><span></span><span class="sd">&#39;&#39;&#39;Queue in Python.</span>
 <span class="sd">&#39;&#39;&#39;</span>
-<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">&#39;circularly_linked_list&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;double_ended_queue&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;doubly_linked_list&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;queue&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;singly_linked_list&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;stack&#39;</span><span class="p">,</span>
-<span class="p">]</span>
 
 
-<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">circularly_linked_list</span>
-<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">double_ended_queue</span>
-<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">doubly_linked_list</span>
-<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">queue</span>
-<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">singly_linked_list</span>
-<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">stack</span>
+<span class="k">class</span> <span class="nc">Queue</span><span class="p">:</span>
+    <span class="sd">&#39;&#39;&#39;Native Python Class for implementing a Queue.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Instantiate a Queue with no max capacity.</span>
 
-<span class="kn">from</span> <span class="nn">.circularly_linked_list</span> <span class="kn">import</span> <span class="n">CircularlyLinkedList</span><span class="p">,</span> <span class="n">CLLNode</span>
-<span class="kn">from</span> <span class="nn">.double_ended_queue</span> <span class="kn">import</span> <span class="n">DoubleEndedQueue</span>
-<span class="kn">from</span> <span class="nn">.doubly_linked_list</span> <span class="kn">import</span> <span class="n">DoublyLinkedList</span><span class="p">,</span> <span class="n">DLLNode</span>
-<span class="kn">from</span> <span class="nn">.queue</span> <span class="kn">import</span> <span class="n">Queue</span>
-<span class="kn">from</span> <span class="nn">.singly_linked_list</span> <span class="kn">import</span> <span class="n">SinglyLinkedList</span><span class="p">,</span> <span class="n">SLLNode</span>
-<span class="kn">from</span> <span class="nn">.stack</span> <span class="kn">import</span> <span class="n">Stack</span>
+<span class="sd">        __Returns__</span>
+
+<span class="sd">        ----</span>
+<span class="sd">        - (Queue): Instantiated Queue object.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">array</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Put new element at back of the Queue.</span>
+
+<span class="sd">        __Args__</span>
+
+<span class="sd">        ----</span>
+<span class="sd">        - data (any): Data to put as element at back of Queue.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Remove and return element at front of the Queue.</span>
+
+<span class="sd">        __Returns__</span>
+
+<span class="sd">        ----</span>
+<span class="sd">        - (any): Element found at front of the Queue.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">element</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">element</span>
+
+    <span class="k">def</span> <span class="nf">get_front</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Get the element at the front of the Queue.</span>
+
+<span class="sd">        __Returns__</span>
+
+<span class="sd">        ----</span>
+<span class="sd">        - (any): The element at the front of the Queue.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">get_back</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Get the element at the back of the Queue.</span>
+
+<span class="sd">        __Returns__</span>
+
+<span class="sd">        ----</span>
+<span class="sd">        - (any): The element at the back of the Queue.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Get the size of the Queue as it is currently.</span>
+
+<span class="sd">        __Returns__</span>
+
+<span class="sd">        ----</span>
+<span class="sd">        - (int): Number of elements in Queue.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">empty</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Check to see if the Queue contains any elements.</span>
+
+<span class="sd">        __Returns__</span>
+
+<span class="sd">        ----</span>
+<span class="sd">        - (bool): True if the Queue contains no elements.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="ow">not</span> <span class="nb">bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="p">)</span>
 </pre></div>
 
   </div>
@@ -1103,50 +1165,343 @@ table {
   <section id="section-items">
 
 
-
-    <h2 class="section-title" id="header-submodules">Sub-modules</h2>
+    <h2 class="section-title" id="header-classes">Classes</h2>
+      
       <div class="item">
-      <p class="name"><a href="circularly_linked_list.m.html">trifles.data_structures.circularly_linked_list</a></p>
+      <p id="trifles.data_structures.queue.Queue" class="name">class <span class="ident">Queue</span></p>
       
   
-    <div class="desc"><p>Circularly Linked List in Python.</p></div>
+    <div class="desc"><p>Native Python Class for implementing a Queue.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-trifles.data_structures.queue.Queue', this);">Show source &equiv;</a></p>
+  <div id="source-trifles.data_structures.queue.Queue" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Queue</span><span class="p">:</span>
+    <span class="sd">&#39;&#39;&#39;Native Python Class for implementing a Queue.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Instantiate a Queue with no max capacity.</span>
 
-      </div>
-      <div class="item">
-      <p class="name"><a href="double_ended_queue.m.html">trifles.data_structures.double_ended_queue</a></p>
-      
+<span class="sd">        __Returns__</span>
+
+<span class="sd">        ----</span>
+<span class="sd">        - (Queue): Instantiated Queue object.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">array</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Put new element at back of the Queue.</span>
+
+<span class="sd">        __Args__</span>
+
+<span class="sd">        ----</span>
+<span class="sd">        - data (any): Data to put as element at back of Queue.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Remove and return element at front of the Queue.</span>
+
+<span class="sd">        __Returns__</span>
+
+<span class="sd">        ----</span>
+<span class="sd">        - (any): Element found at front of the Queue.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">element</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">element</span>
+
+    <span class="k">def</span> <span class="nf">get_front</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Get the element at the front of the Queue.</span>
+
+<span class="sd">        __Returns__</span>
+
+<span class="sd">        ----</span>
+<span class="sd">        - (any): The element at the front of the Queue.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">get_back</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Get the element at the back of the Queue.</span>
+
+<span class="sd">        __Returns__</span>
+
+<span class="sd">        ----</span>
+<span class="sd">        - (any): The element at the back of the Queue.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Get the size of the Queue as it is currently.</span>
+
+<span class="sd">        __Returns__</span>
+
+<span class="sd">        ----</span>
+<span class="sd">        - (int): Number of elements in Queue.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">empty</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Check to see if the Queue contains any elements.</span>
+
+<span class="sd">        __Returns__</span>
+
+<span class="sd">        ----</span>
+<span class="sd">        - (bool): True if the Queue contains no elements.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="ow">not</span> <span class="nb">bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="p">)</span>
+</pre></div>
+
+  </div>
+</div>
+
+
+      <div class="class">
+          <h3>Ancestors (in MRO)</h3>
+          <ul class="class_list">
+          <li><a href="#trifles.data_structures.queue.Queue">Queue</a></li>
+          <li>builtins.object</li>
+          </ul>
+          <h3>Static methods</h3>
+            
+  <div class="item">
+    <div class="name def" id="trifles.data_structures.queue.Queue.__init__">
+    <p>def <span class="ident">__init__</span>(</p><p>self)</p>
+    </div>
+    
+
+    
   
-    <div class="desc"><p>Double Ended Queue in Python.</p></div>
+    <div class="desc"><p>Instantiate a Queue with no max capacity.</p>
+<p><strong>Returns</strong></p>
+<hr />
+<ul>
+<li>(Queue): Instantiated Queue object.</li>
+</ul></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-trifles.data_structures.queue.Queue.__init__', this);">Show source &equiv;</a></p>
+  <div id="source-trifles.data_structures.queue.Queue.__init__" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Instantiate a Queue with no max capacity.</span>
+<span class="sd">    __Returns__</span>
+<span class="sd">    ----</span>
+<span class="sd">    - (Queue): Instantiated Queue object.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">array</span> <span class="o">=</span> <span class="p">[]</span>
+</pre></div>
 
-      </div>
-      <div class="item">
-      <p class="name"><a href="doubly_linked_list.m.html">trifles.data_structures.doubly_linked_list</a></p>
-      
+  </div>
+</div>
+
+  </div>
   
-    <div class="desc"><p>Doubly Linked List in Python.</p></div>
+            
+  <div class="item">
+    <div class="name def" id="trifles.data_structures.queue.Queue.empty">
+    <p>def <span class="ident">empty</span>(</p><p>self)</p>
+    </div>
+    
 
-      </div>
-      <div class="item">
-      <p class="name"><a href="queue.m.html">trifles.data_structures.queue</a></p>
-      
+    
   
-    <div class="desc"><p>Queue in Python.</p></div>
+    <div class="desc"><p>Check to see if the Queue contains any elements.</p>
+<p><strong>Returns</strong></p>
+<hr />
+<ul>
+<li>(bool): True if the Queue contains no elements.</li>
+</ul></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-trifles.data_structures.queue.Queue.empty', this);">Show source &equiv;</a></p>
+  <div id="source-trifles.data_structures.queue.Queue.empty" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">empty</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Check to see if the Queue contains any elements.</span>
+<span class="sd">    __Returns__</span>
+<span class="sd">    ----</span>
+<span class="sd">    - (bool): True if the Queue contains no elements.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="ow">not</span> <span class="nb">bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="p">)</span>
+</pre></div>
 
-      </div>
-      <div class="item">
-      <p class="name"><a href="singly_linked_list.m.html">trifles.data_structures.singly_linked_list</a></p>
-      
+  </div>
+</div>
+
+  </div>
   
-    <div class="desc"><p>Singly Linked List in Python.</p></div>
+            
+  <div class="item">
+    <div class="name def" id="trifles.data_structures.queue.Queue.get_back">
+    <p>def <span class="ident">get_back</span>(</p><p>self)</p>
+    </div>
+    
 
-      </div>
-      <div class="item">
-      <p class="name"><a href="stack.m.html">trifles.data_structures.stack</a></p>
-      
+    
   
-    <div class="desc"><p>Stack in Python.</p></div>
+    <div class="desc"><p>Get the element at the back of the Queue.</p>
+<p><strong>Returns</strong></p>
+<hr />
+<ul>
+<li>(any): The element at the back of the Queue.</li>
+</ul></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-trifles.data_structures.queue.Queue.get_back', this);">Show source &equiv;</a></p>
+  <div id="source-trifles.data_structures.queue.Queue.get_back" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">get_back</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Get the element at the back of the Queue.</span>
+<span class="sd">    __Returns__</span>
+<span class="sd">    ----</span>
+<span class="sd">    - (any): The element at the back of the Queue.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
 
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="trifles.data_structures.queue.Queue.get_front">
+    <p>def <span class="ident">get_front</span>(</p><p>self)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Get the element at the front of the Queue.</p>
+<p><strong>Returns</strong></p>
+<hr />
+<ul>
+<li>(any): The element at the front of the Queue.</li>
+</ul></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-trifles.data_structures.queue.Queue.get_front', this);">Show source &equiv;</a></p>
+  <div id="source-trifles.data_structures.queue.Queue.get_front" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">get_front</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Get the element at the front of the Queue.</span>
+<span class="sd">    __Returns__</span>
+<span class="sd">    ----</span>
+<span class="sd">    - (any): The element at the front of the Queue.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="trifles.data_structures.queue.Queue.pop">
+    <p>def <span class="ident">pop</span>(</p><p>self)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Remove and return element at front of the Queue.</p>
+<p><strong>Returns</strong></p>
+<hr />
+<ul>
+<li>(any): Element found at front of the Queue.</li>
+</ul></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-trifles.data_structures.queue.Queue.pop', this);">Show source &equiv;</a></p>
+  <div id="source-trifles.data_structures.queue.Queue.pop" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Remove and return element at front of the Queue.</span>
+<span class="sd">    __Returns__</span>
+<span class="sd">    ----</span>
+<span class="sd">    - (any): Element found at front of the Queue.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">element</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">element</span>
+</pre></div>
+
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="trifles.data_structures.queue.Queue.push">
+    <p>def <span class="ident">push</span>(</p><p>self, data)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Put new element at back of the Queue.</p>
+<p><strong>Args</strong></p>
+<hr />
+<ul>
+<li>data (any): Data to put as element at back of Queue.</li>
+</ul></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-trifles.data_structures.queue.Queue.push', this);">Show source &equiv;</a></p>
+  <div id="source-trifles.data_structures.queue.Queue.push" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Put new element at back of the Queue.</span>
+<span class="sd">    __Args__</span>
+<span class="sd">    ----</span>
+<span class="sd">    - data (any): Data to put as element at back of Queue.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="trifles.data_structures.queue.Queue.size">
+    <p>def <span class="ident">size</span>(</p><p>self)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Get the size of the Queue as it is currently.</p>
+<p><strong>Returns</strong></p>
+<hr />
+<ul>
+<li>(int): Number of elements in Queue.</li>
+</ul></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-trifles.data_structures.queue.Queue.size', this);">Show source &equiv;</a></p>
+  <div id="source-trifles.data_structures.queue.Queue.size" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Get the size of the Queue as it is currently.</span>
+<span class="sd">    __Returns__</span>
+<span class="sd">    ----</span>
+<span class="sd">    - (int): Number of elements in Queue.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="p">)</span>
+</pre></div>
+
+  </div>
+</div>
+
+  </div>
+  
+          <h3>Instance variables</h3>
+            <div class="item">
+            <p id="trifles.data_structures.queue.Queue.array" class="name">var <span class="ident">array</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
       </div>
+      </div>
+
   </section>
 
     </article>
