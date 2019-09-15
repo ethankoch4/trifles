@@ -1,3 +1,7 @@
+'''Trifles package: includes popular algorithms and data structures in Python.
+'''
 
 from . import data_structures
-from . import algorithms
+from . import experiments
+
+from .data_structures import *

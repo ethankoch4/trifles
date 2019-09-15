@@ -125,7 +125,7 @@ class DoublyLinkedList:
         __Returns__
 
         ----
-        - (bool): True if the any node except the header and trailer exist.
+        - (bool): False if the any node except the header and trailer exist.
         '''
         return bool(self.header.next == self.trailer)
 

@@ -65,7 +65,7 @@ class SinglyLinkedList:
         __Returns__
 
         ----
-        - (bool): True if the root is not None.
+        - (bool): True if the root is None.
         '''
         return self.root is None
 
