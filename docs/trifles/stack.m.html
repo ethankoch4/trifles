@@ -3,8 +3,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 
-    <title>trifles API documentation</title>
-    <meta name="description" content="Trifles package: includes popular algorithms and data structures in Python." />
+    <title>trifles.stack API documentation</title>
+    <meta name="description" content="Stack in Python." />
 
   <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300' rel='stylesheet' type='text/css'>
   
@@ -1042,17 +1042,25 @@ table {
     <ul id="index">
 
 
-
-    <li class="set"><h3><a href="#header-submodules">Sub-modules</a></h3>
+    <li class="set"><h3><a href="#header-classes">Classes</a></h3>
       <ul>
-        <li class="mono"><a href="circularly_linked_list.m.html">trifles.circularly_linked_list</a></li>
-        <li class="mono"><a href="data_structures/index.html">trifles.data_structures</a></li>
-        <li class="mono"><a href="doubly_linked_list.m.html">trifles.doubly_linked_list</a></li>
-        <li class="mono"><a href="experiments.m.html">trifles.experiments</a></li>
-        <li class="mono"><a href="singly_linked_list.m.html">trifles.singly_linked_list</a></li>
-        <li class="mono"><a href="stack.m.html">trifles.stack</a></li>
+        <li class="mono">
+        <span class="class_name"><a href="#trifles.stack.Stack">Stack</a></span>
+        
+          
+  <ul>
+    <li class="mono"><a href="#trifles.stack.Stack.__init__">__init__</a></li>
+    <li class="mono"><a href="#trifles.stack.Stack.empty">empty</a></li>
+    <li class="mono"><a href="#trifles.stack.Stack.get_top">get_top</a></li>
+    <li class="mono"><a href="#trifles.stack.Stack.pop">pop</a></li>
+    <li class="mono"><a href="#trifles.stack.Stack.push">push</a></li>
+    <li class="mono"><a href="#trifles.stack.Stack.size">size</a></li>
+  </ul>
+
+        </li>
       </ul>
     </li>
+
     </ul>
   </div>
 
@@ -1064,27 +1072,79 @@ table {
 
 
   <header id="section-intro">
-  <h1 class="title"><span class="name">trifles</span> module</h1>
-  <p>Trifles package: includes popular algorithms and data structures in Python.</p>
+  <h1 class="title"><span class="name">trifles.stack</span> module</h1>
+  <p>Stack in Python.</p>
   
-  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-trifles', this);">Show source &equiv;</a></p>
-  <div id="source-trifles" class="source">
-    <div class="codehilite"><pre><span></span><span class="sd">&#39;&#39;&#39;Trifles package: includes popular algorithms and data structures in Python.</span>
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-trifles.stack', this);">Show source &equiv;</a></p>
+  <div id="source-trifles.stack" class="source">
+    <div class="codehilite"><pre><span></span><span class="sd">&#39;&#39;&#39;Stack in Python.</span>
 <span class="sd">&#39;&#39;&#39;</span>
-<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">&#39;data_structures&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;experiments&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;circularly_linked_list&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;doubly_linked_list&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;singly_linked_list&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;stack&#39;</span><span class="p">,</span>
-<span class="p">]</span>
 
 
-<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">data_structures</span>
-<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">experiments</span>
+<span class="k">class</span> <span class="nc">Stack</span><span class="p">:</span>
+    <span class="sd">&#39;&#39;&#39;Native Python Class for implementing a Stack.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Instantiate a Stack with no max capacity.</span>
 
-<span class="kn">from</span> <span class="nn">.data_structures</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="sd">        __Returns__</span>
+
+<span class="sd">        ----</span>
+<span class="sd">        - (Stack): Instantiated Stack object.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">array</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Get the size of the stack as it is currently.</span>
+
+<span class="sd">        __Returns__</span>
+
+<span class="sd">        ----</span>
+<span class="sd">        - (int): Number of elements in stack.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">empty</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Check to see if the Stack contains any elements.</span>
+
+<span class="sd">        __Returns__</span>
+
+<span class="sd">        ----</span>
+<span class="sd">        - (bool): True if the Stack contains no elements.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="ow">not</span> <span class="nb">bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_top</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Get the element at the top of the Stack.</span>
+
+<span class="sd">        __Returns__</span>
+
+<span class="sd">        ----</span>
+<span class="sd">        - (any): The element at the top of the Stack.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Put new element at top of the Stack.</span>
+
+<span class="sd">        __Args__</span>
+
+<span class="sd">        ----</span>
+<span class="sd">        - data (any): Data to put as element at top of Stack.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Remove and return element at top of the Stack.</span>
+
+<span class="sd">        __Returns__</span>
+
+<span class="sd">        ----</span>
+<span class="sd">        - (any): Element found at top of the Stack.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">element</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">element</span>
 </pre></div>
 
   </div>
@@ -1094,50 +1154,301 @@ table {
   <section id="section-items">
 
 
-
-    <h2 class="section-title" id="header-submodules">Sub-modules</h2>
+    <h2 class="section-title" id="header-classes">Classes</h2>
+      
       <div class="item">
-      <p class="name"><a href="circularly_linked_list.m.html">trifles.circularly_linked_list</a></p>
+      <p id="trifles.stack.Stack" class="name">class <span class="ident">Stack</span></p>
       
   
-    <div class="desc"><p>Circularly Linked List in Python.</p></div>
+    <div class="desc"><p>Native Python Class for implementing a Stack.</p></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-trifles.stack.Stack', this);">Show source &equiv;</a></p>
+  <div id="source-trifles.stack.Stack" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Stack</span><span class="p">:</span>
+    <span class="sd">&#39;&#39;&#39;Native Python Class for implementing a Stack.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Instantiate a Stack with no max capacity.</span>
 
-      </div>
-      <div class="item">
-      <p class="name"><a href="data_structures/index.html">trifles.data_structures</a></p>
-      
+<span class="sd">        __Returns__</span>
+
+<span class="sd">        ----</span>
+<span class="sd">        - (Stack): Instantiated Stack object.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">array</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Get the size of the stack as it is currently.</span>
+
+<span class="sd">        __Returns__</span>
+
+<span class="sd">        ----</span>
+<span class="sd">        - (int): Number of elements in stack.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">empty</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Check to see if the Stack contains any elements.</span>
+
+<span class="sd">        __Returns__</span>
+
+<span class="sd">        ----</span>
+<span class="sd">        - (bool): True if the Stack contains no elements.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="ow">not</span> <span class="nb">bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_top</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Get the element at the top of the Stack.</span>
+
+<span class="sd">        __Returns__</span>
+
+<span class="sd">        ----</span>
+<span class="sd">        - (any): The element at the top of the Stack.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Put new element at top of the Stack.</span>
+
+<span class="sd">        __Args__</span>
+
+<span class="sd">        ----</span>
+<span class="sd">        - data (any): Data to put as element at top of Stack.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Remove and return element at top of the Stack.</span>
+
+<span class="sd">        __Returns__</span>
+
+<span class="sd">        ----</span>
+<span class="sd">        - (any): Element found at top of the Stack.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">element</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">element</span>
+</pre></div>
+
+  </div>
+</div>
+
+
+      <div class="class">
+          <h3>Ancestors (in MRO)</h3>
+          <ul class="class_list">
+          <li><a href="#trifles.stack.Stack">Stack</a></li>
+          <li>builtins.object</li>
+          </ul>
+          <h3>Static methods</h3>
+            
+  <div class="item">
+    <div class="name def" id="trifles.stack.Stack.__init__">
+    <p>def <span class="ident">__init__</span>(</p><p>self)</p>
+    </div>
+    
+
+    
   
-    <div class="desc"><p>Native Python Data Structures.</p></div>
+    <div class="desc"><p>Instantiate a Stack with no max capacity.</p>
+<p><strong>Returns</strong></p>
+<hr />
+<ul>
+<li>(Stack): Instantiated Stack object.</li>
+</ul></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-trifles.stack.Stack.__init__', this);">Show source &equiv;</a></p>
+  <div id="source-trifles.stack.Stack.__init__" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Instantiate a Stack with no max capacity.</span>
+<span class="sd">    __Returns__</span>
+<span class="sd">    ----</span>
+<span class="sd">    - (Stack): Instantiated Stack object.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">array</span> <span class="o">=</span> <span class="p">[]</span>
+</pre></div>
 
-      </div>
-      <div class="item">
-      <p class="name"><a href="doubly_linked_list.m.html">trifles.doubly_linked_list</a></p>
-      
+  </div>
+</div>
+
+  </div>
   
-    <div class="desc"><p>Doubly Linked List in Python.</p></div>
+            
+  <div class="item">
+    <div class="name def" id="trifles.stack.Stack.empty">
+    <p>def <span class="ident">empty</span>(</p><p>self)</p>
+    </div>
+    
 
-      </div>
-      <div class="item">
-      <p class="name"><a href="experiments.m.html">trifles.experiments</a></p>
-      
+    
   
-    <div class="desc"><p>Place to experiment with different data structures and algorithms.</p></div>
+    <div class="desc"><p>Check to see if the Stack contains any elements.</p>
+<p><strong>Returns</strong></p>
+<hr />
+<ul>
+<li>(bool): True if the Stack contains no elements.</li>
+</ul></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-trifles.stack.Stack.empty', this);">Show source &equiv;</a></p>
+  <div id="source-trifles.stack.Stack.empty" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">empty</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Check to see if the Stack contains any elements.</span>
+<span class="sd">    __Returns__</span>
+<span class="sd">    ----</span>
+<span class="sd">    - (bool): True if the Stack contains no elements.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="ow">not</span> <span class="nb">bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="p">)</span>
+</pre></div>
 
-      </div>
-      <div class="item">
-      <p class="name"><a href="singly_linked_list.m.html">trifles.singly_linked_list</a></p>
-      
+  </div>
+</div>
+
+  </div>
   
-    <div class="desc"><p>Singly Linked List in Python.</p></div>
+            
+  <div class="item">
+    <div class="name def" id="trifles.stack.Stack.get_top">
+    <p>def <span class="ident">get_top</span>(</p><p>self)</p>
+    </div>
+    
 
-      </div>
-      <div class="item">
-      <p class="name"><a href="stack.m.html">trifles.stack</a></p>
-      
+    
   
-    <div class="desc"><p>Stack in Python.</p></div>
+    <div class="desc"><p>Get the element at the top of the Stack.</p>
+<p><strong>Returns</strong></p>
+<hr />
+<ul>
+<li>(any): The element at the top of the Stack.</li>
+</ul></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-trifles.stack.Stack.get_top', this);">Show source &equiv;</a></p>
+  <div id="source-trifles.stack.Stack.get_top" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">get_top</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Get the element at the top of the Stack.</span>
+<span class="sd">    __Returns__</span>
+<span class="sd">    ----</span>
+<span class="sd">    - (any): The element at the top of the Stack.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
 
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="trifles.stack.Stack.pop">
+    <p>def <span class="ident">pop</span>(</p><p>self)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Remove and return element at top of the Stack.</p>
+<p><strong>Returns</strong></p>
+<hr />
+<ul>
+<li>(any): Element found at top of the Stack.</li>
+</ul></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-trifles.stack.Stack.pop', this);">Show source &equiv;</a></p>
+  <div id="source-trifles.stack.Stack.pop" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Remove and return element at top of the Stack.</span>
+<span class="sd">    __Returns__</span>
+<span class="sd">    ----</span>
+<span class="sd">    - (any): Element found at top of the Stack.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">element</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">element</span>
+</pre></div>
+
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="trifles.stack.Stack.push">
+    <p>def <span class="ident">push</span>(</p><p>self, data)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Put new element at top of the Stack.</p>
+<p><strong>Args</strong></p>
+<hr />
+<ul>
+<li>data (any): Data to put as element at top of Stack.</li>
+</ul></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-trifles.stack.Stack.push', this);">Show source &equiv;</a></p>
+  <div id="source-trifles.stack.Stack.push" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Put new element at top of the Stack.</span>
+<span class="sd">    __Args__</span>
+<span class="sd">    ----</span>
+<span class="sd">    - data (any): Data to put as element at top of Stack.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+
+  </div>
+</div>
+
+  </div>
+  
+            
+  <div class="item">
+    <div class="name def" id="trifles.stack.Stack.size">
+    <p>def <span class="ident">size</span>(</p><p>self)</p>
+    </div>
+    
+
+    
+  
+    <div class="desc"><p>Get the size of the stack as it is currently.</p>
+<p><strong>Returns</strong></p>
+<hr />
+<ul>
+<li>(int): Number of elements in stack.</li>
+</ul></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-trifles.stack.Stack.size', this);">Show source &equiv;</a></p>
+  <div id="source-trifles.stack.Stack.size" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Get the size of the stack as it is currently.</span>
+<span class="sd">    __Returns__</span>
+<span class="sd">    ----</span>
+<span class="sd">    - (int): Number of elements in stack.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="p">)</span>
+</pre></div>
+
+  </div>
+</div>
+
+  </div>
+  
+          <h3>Instance variables</h3>
+            <div class="item">
+            <p id="trifles.stack.Stack.array" class="name">var <span class="ident">array</span></p>
+            
+
+            
+  
+  <div class="source_cont">
+</div>
+
+            </div>
       </div>
+      </div>
+
   </section>
 
     </article>

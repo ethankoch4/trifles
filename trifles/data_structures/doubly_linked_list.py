@@ -1,6 +1,7 @@
 '''Doubly Linked List in Python.
 '''
 
+
 class DoublyLinkedList:
     '''Native Python Class for implementing a Generic Doubly Linked List.
     '''

@@ -3,8 +3,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 
-    <title>trifles API documentation</title>
-    <meta name="description" content="Trifles package: includes popular algorithms and data structures in Python." />
+    <title>trifles.experiments API documentation</title>
+    <meta name="description" content="Place to experiment with different data structures and algorithms." />
 
   <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300' rel='stylesheet' type='text/css'>
   
@@ -1041,18 +1041,15 @@ table {
     <h1>Index</h1>
     <ul id="index">
 
+    <li class="set"><h3><a href="#header-functions">Functions</a></h3>
+      
+  <ul>
+    <li class="mono"><a href="#trifles.experiments.reverse_vector_with_stack">reverse_vector_with_stack</a></li>
+  </ul>
 
-
-    <li class="set"><h3><a href="#header-submodules">Sub-modules</a></h3>
-      <ul>
-        <li class="mono"><a href="circularly_linked_list.m.html">trifles.circularly_linked_list</a></li>
-        <li class="mono"><a href="data_structures/index.html">trifles.data_structures</a></li>
-        <li class="mono"><a href="doubly_linked_list.m.html">trifles.doubly_linked_list</a></li>
-        <li class="mono"><a href="experiments.m.html">trifles.experiments</a></li>
-        <li class="mono"><a href="singly_linked_list.m.html">trifles.singly_linked_list</a></li>
-        <li class="mono"><a href="stack.m.html">trifles.stack</a></li>
-      </ul>
     </li>
+
+
     </ul>
   </div>
 
@@ -1064,27 +1061,39 @@ table {
 
 
   <header id="section-intro">
-  <h1 class="title"><span class="name">trifles</span> module</h1>
-  <p>Trifles package: includes popular algorithms and data structures in Python.</p>
+  <h1 class="title"><span class="name">trifles.experiments</span> module</h1>
+  <p>Place to experiment with different data structures and algorithms.</p>
   
-  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-trifles', this);">Show source &equiv;</a></p>
-  <div id="source-trifles" class="source">
-    <div class="codehilite"><pre><span></span><span class="sd">&#39;&#39;&#39;Trifles package: includes popular algorithms and data structures in Python.</span>
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-trifles.experiments', this);">Show source &equiv;</a></p>
+  <div id="source-trifles.experiments" class="source">
+    <div class="codehilite"><pre><span></span><span class="sd">&#39;&#39;&#39;Place to experiment with different data structures and algorithms.</span>
 <span class="sd">&#39;&#39;&#39;</span>
-<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">&#39;data_structures&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;experiments&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;circularly_linked_list&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;doubly_linked_list&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;singly_linked_list&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;stack&#39;</span><span class="p">,</span>
-<span class="p">]</span>
-
 
 <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">data_structures</span>
-<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">experiments</span>
 
-<span class="kn">from</span> <span class="nn">.data_structures</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="k">def</span> <span class="nf">reverse_vector_with_stack</span><span class="p">(</span><span class="n">vector</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Reverses a vector using a stack &quot;in-place&quot;.</span>
+
+<span class="sd">    __Args__</span>
+
+<span class="sd">    ----</span>
+<span class="sd">    - vector (iterable): Vector to be reversed and returned.</span>
+
+<span class="sd">    __Returns__</span>
+
+<span class="sd">    ----</span>
+<span class="sd">    - (iterable): Vector that was input with the elements&#39; order reversed.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">stack</span> <span class="o">=</span> <span class="n">data_structures</span><span class="o">.</span><span class="n">stack</span><span class="o">.</span><span class="n">Stack</span><span class="p">()</span>
+
+    <span class="c1"># create stack (LIFO)</span>
+    <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">vector</span><span class="p">:</span>
+        <span class="n">stack</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+
+    <span class="c1"># pop of the elements of the Stack (LIFO)</span>
+    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">element</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">vector</span><span class="p">):</span>
+        <span class="n">vector</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
 </pre></div>
 
   </div>
@@ -1093,51 +1102,61 @@ table {
 
   <section id="section-items">
 
-
-
-    <h2 class="section-title" id="header-submodules">Sub-modules</h2>
-      <div class="item">
-      <p class="name"><a href="circularly_linked_list.m.html">trifles.circularly_linked_list</a></p>
+    <h2 class="section-title" id="header-functions">Functions</h2>
       
-  
-    <div class="desc"><p>Circularly Linked List in Python.</p></div>
+  <div class="item">
+    <div class="name def" id="trifles.experiments.reverse_vector_with_stack">
+    <p>def <span class="ident">reverse_vector_with_stack</span>(</p><p>vector)</p>
+    </div>
+    
 
-      </div>
-      <div class="item">
-      <p class="name"><a href="data_structures/index.html">trifles.data_structures</a></p>
-      
+    
   
-    <div class="desc"><p>Native Python Data Structures.</p></div>
+    <div class="desc"><p>Reverses a vector using a stack "in-place".</p>
+<p><strong>Args</strong></p>
+<hr />
+<ul>
+<li>vector (iterable): Vector to be reversed and returned.</li>
+</ul>
+<p><strong>Returns</strong></p>
+<hr />
+<ul>
+<li>(iterable): Vector that was input with the elements' order reversed.</li>
+</ul></div>
+  <div class="source_cont">
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-trifles.experiments.reverse_vector_with_stack', this);">Show source &equiv;</a></p>
+  <div id="source-trifles.experiments.reverse_vector_with_stack" class="source">
+    <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">reverse_vector_with_stack</span><span class="p">(</span><span class="n">vector</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Reverses a vector using a stack &quot;in-place&quot;.</span>
 
-      </div>
-      <div class="item">
-      <p class="name"><a href="doubly_linked_list.m.html">trifles.doubly_linked_list</a></p>
-      
+<span class="sd">    __Args__</span>
+
+<span class="sd">    ----</span>
+<span class="sd">    - vector (iterable): Vector to be reversed and returned.</span>
+
+<span class="sd">    __Returns__</span>
+
+<span class="sd">    ----</span>
+<span class="sd">    - (iterable): Vector that was input with the elements&#39; order reversed.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">stack</span> <span class="o">=</span> <span class="n">data_structures</span><span class="o">.</span><span class="n">stack</span><span class="o">.</span><span class="n">Stack</span><span class="p">()</span>
+
+    <span class="c1"># create stack (LIFO)</span>
+    <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">vector</span><span class="p">:</span>
+        <span class="n">stack</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+
+    <span class="c1"># pop of the elements of the Stack (LIFO)</span>
+    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">element</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">vector</span><span class="p">):</span>
+        <span class="n">vector</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+</pre></div>
+
+  </div>
+</div>
+
+  </div>
   
-    <div class="desc"><p>Doubly Linked List in Python.</p></div>
 
-      </div>
-      <div class="item">
-      <p class="name"><a href="experiments.m.html">trifles.experiments</a></p>
-      
-  
-    <div class="desc"><p>Place to experiment with different data structures and algorithms.</p></div>
 
-      </div>
-      <div class="item">
-      <p class="name"><a href="singly_linked_list.m.html">trifles.singly_linked_list</a></p>
-      
-  
-    <div class="desc"><p>Singly Linked List in Python.</p></div>
-
-      </div>
-      <div class="item">
-      <p class="name"><a href="stack.m.html">trifles.stack</a></p>
-      
-  
-    <div class="desc"><p>Stack in Python.</p></div>
-
-      </div>
   </section>
 
     </article>

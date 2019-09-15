@@ -1,6 +1,7 @@
 '''Circularly Linked List in Python.
 '''
 
+
 class CircularlyLinkedList:
     '''Native Python Class for implementing a Generic Circularly Linked List.
     '''

@@ -1,3 +1,6 @@
+'''Native Python Data Structures.
+'''
+
 
 from . import circularly_linked_list
 from . import doubly_linked_list

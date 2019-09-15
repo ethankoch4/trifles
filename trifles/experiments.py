@@ -1,4 +1,8 @@
+'''Place to experiment with different data structures and algorithms.
+'''
+
 from . import data_structures
+
 
 def reverse_vector_with_stack(vector):
     '''Reverses a vector using a stack "in-place".

@@ -1,6 +1,7 @@
 '''Singly Linked List in Python.
 '''
 
+
 class SinglyLinkedList:
     '''Native Python Class for implementing a Generic Singly Linked List.
     '''

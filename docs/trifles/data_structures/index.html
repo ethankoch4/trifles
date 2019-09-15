@@ -3,8 +3,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 
-    <title>trifles API documentation</title>
-    <meta name="description" content="Trifles package: includes popular algorithms and data structures in Python." />
+    <title>trifles.data_structures API documentation</title>
+    <meta name="description" content="Native Python Data Structures." />
 
   <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300' rel='stylesheet' type='text/css'>
   
@@ -1043,16 +1043,6 @@ table {
 
 
 
-    <li class="set"><h3><a href="#header-submodules">Sub-modules</a></h3>
-      <ul>
-        <li class="mono"><a href="circularly_linked_list.m.html">trifles.circularly_linked_list</a></li>
-        <li class="mono"><a href="data_structures/index.html">trifles.data_structures</a></li>
-        <li class="mono"><a href="doubly_linked_list.m.html">trifles.doubly_linked_list</a></li>
-        <li class="mono"><a href="experiments.m.html">trifles.experiments</a></li>
-        <li class="mono"><a href="singly_linked_list.m.html">trifles.singly_linked_list</a></li>
-        <li class="mono"><a href="stack.m.html">trifles.stack</a></li>
-      </ul>
-    </li>
     </ul>
   </div>
 
@@ -1064,27 +1054,24 @@ table {
 
 
   <header id="section-intro">
-  <h1 class="title"><span class="name">trifles</span> module</h1>
-  <p>Trifles package: includes popular algorithms and data structures in Python.</p>
+  <h1 class="title"><span class="name">trifles.data_structures</span> module</h1>
+  <p>Native Python Data Structures.</p>
   
-  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-trifles', this);">Show source &equiv;</a></p>
-  <div id="source-trifles" class="source">
-    <div class="codehilite"><pre><span></span><span class="sd">&#39;&#39;&#39;Trifles package: includes popular algorithms and data structures in Python.</span>
+  <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-trifles.data_structures', this);">Show source &equiv;</a></p>
+  <div id="source-trifles.data_structures" class="source">
+    <div class="codehilite"><pre><span></span><span class="sd">&#39;&#39;&#39;Native Python Data Structures.</span>
 <span class="sd">&#39;&#39;&#39;</span>
-<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">&#39;data_structures&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;experiments&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;circularly_linked_list&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;doubly_linked_list&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;singly_linked_list&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;stack&#39;</span><span class="p">,</span>
-<span class="p">]</span>
 
 
-<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">data_structures</span>
-<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">experiments</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">circularly_linked_list</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">doubly_linked_list</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">singly_linked_list</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">stack</span>
 
-<span class="kn">from</span> <span class="nn">.data_structures</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">.circularly_linked_list</span> <span class="kn">import</span> <span class="n">CircularlyLinkedList</span><span class="p">,</span> <span class="n">CLLNode</span>
+<span class="kn">from</span> <span class="nn">.doubly_linked_list</span> <span class="kn">import</span> <span class="n">DoublyLinkedList</span><span class="p">,</span> <span class="n">DLLNode</span>
+<span class="kn">from</span> <span class="nn">.singly_linked_list</span> <span class="kn">import</span> <span class="n">SinglyLinkedList</span><span class="p">,</span> <span class="n">SLLNode</span>
+<span class="kn">from</span> <span class="nn">.stack</span> <span class="kn">import</span> <span class="n">Stack</span>
 </pre></div>
 
   </div>
@@ -1095,49 +1082,6 @@ table {
 
 
 
-    <h2 class="section-title" id="header-submodules">Sub-modules</h2>
-      <div class="item">
-      <p class="name"><a href="circularly_linked_list.m.html">trifles.circularly_linked_list</a></p>
-      
-  
-    <div class="desc"><p>Circularly Linked List in Python.</p></div>
-
-      </div>
-      <div class="item">
-      <p class="name"><a href="data_structures/index.html">trifles.data_structures</a></p>
-      
-  
-    <div class="desc"><p>Native Python Data Structures.</p></div>
-
-      </div>
-      <div class="item">
-      <p class="name"><a href="doubly_linked_list.m.html">trifles.doubly_linked_list</a></p>
-      
-  
-    <div class="desc"><p>Doubly Linked List in Python.</p></div>
-
-      </div>
-      <div class="item">
-      <p class="name"><a href="experiments.m.html">trifles.experiments</a></p>
-      
-  
-    <div class="desc"><p>Place to experiment with different data structures and algorithms.</p></div>
-
-      </div>
-      <div class="item">
-      <p class="name"><a href="singly_linked_list.m.html">trifles.singly_linked_list</a></p>
-      
-  
-    <div class="desc"><p>Singly Linked List in Python.</p></div>
-
-      </div>
-      <div class="item">
-      <p class="name"><a href="stack.m.html">trifles.stack</a></p>
-      
-  
-    <div class="desc"><p>Stack in Python.</p></div>
-
-      </div>
   </section>
 
     </article>
